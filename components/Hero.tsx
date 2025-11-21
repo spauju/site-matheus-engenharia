@@ -16,60 +16,60 @@ const Hero: React.FC = () => {
       });
     }
   };
-  
+
   return (
-    <section 
-      id="home" 
-      className="relative bg-slate-900 text-white overflow-hidden"
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center bg-slate-900 text-white overflow-hidden pt-20"
     >
-      {/* SVG Background Pattern */}
-      <div className="absolute inset-0 opacity-20">
-        <svg className="w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#1e40af" stopOpacity="0.8"/>
-              <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.6"/>
-              <stop offset="100%" stopColor="#60a5fa" stopOpacity="0.4"/>
-            </linearGradient>
-            <pattern id="engineeringPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-              <circle cx="50" cy="50" r="2" fill="#3b82f6" opacity="0.3"/>
-              <circle cx="25" cy="25" r="1.5" fill="#60a5fa" opacity="0.2"/>
-              <circle cx="75" cy="75" r="1.5" fill="#60a5fa" opacity="0.2"/>
-              <path d="M20,20 L80,80 M80,20 L20,80" stroke="#1e40af" strokeWidth="0.5" opacity="0.1"/>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#heroGradient)"/>
-          <rect width="100%" height="100%" fill="url(#engineeringPattern)"/>
-          {/* Geometric shapes representing engineering */}
-          <g opacity="0.1">
-            <circle cx="200" cy="150" r="80" fill="none" stroke="#3b82f6" strokeWidth="2"/>
-            <rect x="800" y="400" width="120" height="120" fill="none" stroke="#60a5fa" strokeWidth="2" transform="rotate(45 860 460)"/>
-            <polygon points="1000,200 1100,300 1000,400 900,300" fill="none" stroke="#1e40af" strokeWidth="2"/>
-          </g>
-        </svg>
+      {/* Dynamic Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full bg-[#0B1120]"></div>
+        <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] bg-blue-600/20 rounded-full blur-[120px] animate-pulse"></div>
+        <div className="absolute top-[40%] -right-[10%] w-[60%] h-[60%] bg-cyan-500/20 rounded-full blur-[100px] animate-pulse delay-1000"></div>
+        <div className="absolute -bottom-[10%] left-[20%] w-[50%] h-[50%] bg-indigo-600/20 rounded-full blur-[100px] animate-pulse delay-2000"></div>
+
+        {/* Grid Pattern Overlay */}
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+        <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px)', backgroundSize: '40px 40px', opacity: 0.1 }}></div>
       </div>
-      <div className="container mx-auto px-6 py-24 md:py-32 lg:py-40 relative z-10 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-slate-100 tracking-tight">
+
+      <div className="container mx-auto px-6 relative z-10 text-center">
+        <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 backdrop-blur-sm">
+          <span className="text-blue-400 font-medium text-sm tracking-wider uppercase">Soluções em Engenharia</span>
+        </div>
+
+        <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-2">
           Engenharia Mecânica
         </h1>
-        <p className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-blue-400 leading-tight mt-2 mb-4">
+
+        <p className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 leading-tight mb-8 drop-shadow-lg">
           Responsável
         </p>
-        <p className="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto mb-8">
-          Compromisso, expertise e segurança em cada projeto.
+
+        <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Compromisso, expertise e segurança técnica para elevar o padrão dos seus projetos industriais.
         </p>
-        <div className="flex justify-center flex-wrap gap-4">
+
+        <div className="flex flex-col sm:flex-row justify-center gap-5">
           <a
             href="#servicos"
             onClick={handleLinkClick}
-            className="bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
+            className="group relative px-8 py-4 bg-blue-600 rounded-xl font-bold text-white shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
           >
-            Nossos Serviços
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <span className="relative flex items-center justify-center gap-2">
+              Nossos Serviços
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 group-hover:translate-x-1 transition-transform">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </span>
           </a>
+
           <a
             href="#contato"
             onClick={handleLinkClick}
-            className="bg-transparent border-2 border-white text-white font-semibold py-3 px-8 rounded-lg text-lg hover:bg-white hover:text-slate-900 transition-all duration-300"
+            className="px-8 py-4 bg-white/5 border border-white/10 backdrop-blur-sm rounded-xl font-bold text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300"
           >
             Solicite um Orçamento
           </a>

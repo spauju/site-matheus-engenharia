@@ -27,12 +27,16 @@ interface ServiceCardProps {
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) => (
-  <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center">
-    <div className="bg-blue-100 text-blue-600 rounded-full p-4 mb-6">
-      {icon}
+  <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 hover:border-blue-100 relative overflow-hidden">
+    <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
+
+    <div className="relative z-10">
+      <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300 shadow-sm">
+        {icon}
+      </div>
+      <h3 className="text-xl font-bold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors">{title}</h3>
+      <p className="text-slate-600 leading-relaxed">{description}</p>
     </div>
-    <h3 className="text-xl font-bold text-slate-800 mb-3">{title}</h3>
-    <p className="text-slate-600 leading-relaxed">{description}</p>
   </div>
 );
 
@@ -56,11 +60,12 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section id="servicos" className="py-20 bg-slate-100">
+    <section id="servicos" className="py-24 bg-slate-50 relative">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Nossos Serviços Especializados</h2>
-          <p className="text-lg text-slate-600 mt-4 max-w-2xl mx-auto">Oferecemos soluções confiáveis e precisas para as necessidades da sua empresa.</p>
+        <div className="text-center mb-16">
+          <span className="text-blue-600 font-semibold tracking-wider uppercase text-sm">O que oferecemos</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-2 mb-6">Nossos Serviços Especializados</h2>
+          <p className="text-lg text-slate-600 mt-4 max-w-2xl mx-auto">Oferecemos soluções confiáveis e precisas para as necessidades da sua empresa, com foco em qualidade e segurança.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (

@@ -9,7 +9,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 
 const App: React.FC = () => {
   // Replace with your actual WhatsApp number and a pre-filled message
-  const whatsappNumber = "554499452738";
+  const whatsappNumber = "5544991320666";
   const whatsappMessage = "olá,vim do site gostaria de tirar algumas dúvidas, referente aos serviços prestados.";
 
   return (
